@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>458490123543-c60huugrt9lkpatb20ksfe3tnm43ro9q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.458490123543-c60huugrt9lkpatb20ksfe3tnm43ro9q</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>458490123543-jp4osvedfgc1t4so9goog1cuh4c72r34.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmcpDTYQgFRrL-S4T1FToO0xqhDC7ydFs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>458490123543</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.adminPannel.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>daraz-clone-7b875</string>
+	<key>STORAGE_BUCKET</key>
+	<string>daraz-clone-7b875.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:458490123543:ios:23f7af2cc841949f779352</string>
+</dict>
+</plist>
