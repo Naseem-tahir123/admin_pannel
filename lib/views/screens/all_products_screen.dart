@@ -1,7 +1,10 @@
 import 'package:admin_pannel/controllers/add_image_controller.dart';
+import 'package:admin_pannel/controllers/category_controller.dart';
+import 'package:admin_pannel/controllers/is_sale_controller.dart';
 import 'package:admin_pannel/models/product_model.dart';
 import 'package:admin_pannel/utils/app_constants.dart';
 import 'package:admin_pannel/views/screens/add_product_screen.dart';
+import 'package:admin_pannel/views/screens/edit_product_screen.dart';
 import 'package:admin_pannel/views/screens/product_details_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -9,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AllProductsScreen extends StatelessWidget {
-   AllProductsScreen({super.key});
+  AllProductsScreen({super.key});
   final AddImageController addImageController = Get.put(AddImageController());
 
   @override
@@ -78,14 +81,27 @@ class AllProductsScreen extends StatelessWidget {
                           backgroundColor: AppConstants.appMainColor,
                           backgroundImage: CachedNetworkImageProvider(
                               productModel.productImages[0],
-                              errorListener: (err) {
+                              errorListener: (error) {
                             print("Error loading image");
                             const Icon(Icons.error);
                           }),
                         ),
                         title: Text(productModel.productName),
                         subtitle: Text(productModel.productId),
-                        trailing: const Icon(Icons.arrow_forward_ios),
+                        trailing: GestureDetector(
+                            onTap: () {
+                              final editCategoryProduct =
+                                  Get.put(CategoryController());
+                              editCategoryProduct
+                                  .setOldValue(productModel.categoryId);
+                              final setIsSaleOldValue =
+                                  Get.put(IsSaleController());
+                              setIsSaleOldValue
+                                  .setIsSaleOldValue(productModel.isSale);
+                              Get.to(() => EditProductScreen(
+                                  productModel: productModel));
+                            },
+                            child: const Icon(Icons.edit)),
                       ),
                     );
                   });

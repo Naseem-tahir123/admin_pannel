@@ -53,12 +53,12 @@ class CategoryController extends GetxController {
   }
 
   // Fetch Category Name
-  Future<String?> fetchCategoryName(String? categoryid) async {
+  Future<String?> fetchCategoryName(String? categoryId) async {
     try {
       DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
           .instance
           .collection("categories")
-          .doc(categoryid)
+          .doc(categoryId)
           .get();
       if (snapshot.exists) {
         return snapshot.data()?["categoryName"];
@@ -75,6 +75,14 @@ class CategoryController extends GetxController {
   void setSelectedCategoryName(String? categoryName) {
     selectedCategoryName = categoryName?.obs;
     print(" Selected category name: $selectedCategoryName");
+    update();
+  }
+
+  // Set old value of category
+  // Set Selected Category Name
+  void setOldValue(String? categoryId) {
+    selectedCategoryId = categoryId?.obs;
+    print(" Selected Category Id: $selectedCategoryId");
     update();
   }
 }

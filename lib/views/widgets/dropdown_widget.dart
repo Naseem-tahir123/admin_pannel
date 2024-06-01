@@ -38,8 +38,12 @@ class DropdownWidget extends StatelessWidget {
                               ],
                             ));
                       }).toList(),
-                      onChanged: (String? selectedValue) {
+                      onChanged: (String? selectedValue) async {
                         categoryController.setSelectedCategory(selectedValue);
+                        String? categoryName = await categoryController
+                            .fetchCategoryName(selectedValue);
+                        categoryController
+                            .setSelectedCategoryName(categoryName);
                       },
                       hint: const Text("Select a Category"),
                       isExpanded: true,

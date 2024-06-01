@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -80,5 +82,22 @@ class AddImageController extends GetxController {
   void removeImage(int index) {
     selectedImages.removeAt(index);
     update();
+  }
+
+  Future<void> uploadFuction(List<XFile> _images) async {
+    arrImagesUrl.clear();
+    for (var i = 0; i < _images.length; i++) {
+      dynamic imageUrl = await uploadFile(_images[i]);
+      arrImagesUrl.add(imageUrl.toString());
+    }
+  }
+
+  Future<String> uploadFile(XFile _image) async {
+    TaskSnapshot reference = await storageRef
+        .ref()
+        .child("product-images")
+        .child(_image.name + DateTime.now().toString())
+        .putFile(File(_image.path));
+    return reference.ref.getDownloadURL();
   }
 }
